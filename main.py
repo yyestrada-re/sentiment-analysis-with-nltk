@@ -16,6 +16,11 @@ curr_track = raw_sp_data['item']['name']
 spot_artist = raw_sp_data['item']['album']['artists'][0]['name']
 
 print(spot_artist)
+print(curr_track)
+
+if "-" in curr_track.lower():
+    curr_track = curr_track[:curr_track.index("-") - 1]
+    print(f"FIXED CURR_TRACK: {curr_track}")
 
 raw_lyrics = getLyrics(curr_track, spot_artist)
 filtered_lyrics = filterTokens(raw_lyrics)
